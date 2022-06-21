@@ -1,0 +1,365 @@
+/* --- Variables --- */
+
+@import url('https://fonts.googleapis.com/css2?family=Eczar:wght@600&family=Work+Sans:ital,wght@0,400;1,600&display=swap');
+
+:root {
+  --primary-stack: 'Work Sans', sans-serif;
+  --primary-size: 16px;
+  --primary-line-height: 24px;
+  --title-stack: 'Eczar', serif;
+  --title-size: 2.5em;
+  --title-line-height: 1em;
+  --title-margin-bottom: 0.5em;
+  --primary-small: 12px;
+  --c-background: #ffed9e;
+  --c-accent: #e16071;
+  --c-malachite: #66eb73;
+  --c-blue: #649cd9;
+  --c-orange: f2ac42;
+  --c-white: #fff;
+  --c-black: #000;
+  --c-body: #333;
+  --c-border: #666;
+  --site-gutter: 0 1em;
+  --site-vertical: 1em 0;
+}
+
+/* --- Reset --- */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- Layout --- */
+
+html {
+  font-size: 1.125em;
+  overflow-y: scroll;
+  height: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-size: 18px;
+  background-color: var(--c-background);
+  color: var(--c-body);
+  min-width: 320px;
+}
+
+/* --- Home --- */
+
+.home {
+  padding: var(--site-gutter);
+  margin: var(--site-vertical);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.home__title {
+  font-family: var(--title-stack);
+  font-size: var(--title-size);
+  line-height: var(--title-line-height);
+  color: var(--c-body);
+  margin-bottom: var(--title-margin-bottom);
+}
+
+.home__body {
+  font-family: var(--primary-stack);
+  font-size: var(--primary-size);
+  line-height: var(--primary-line-height);
+  margin-bottom: 1em;
+}
+
+.home__image {
+  margin-bottom: 1em;
+}
+
+/* --- Form --- */
+
+fieldset {
+  border: none;
+  padding: 0;
+}
+
+.form {
+  padding: var(--site-gutter);
+  margin: var(--site-vertical);
+}
+
+.form__title {
+  font-family: var(--title-stack);
+  font-size: var(--title-size);
+  line-height: var(--title-line-height);
+  color: var(--c-body);
+  margin-bottom: var(--title-margin-bottom);
+}
+
+.form__group {
+  position: relative;
+  height: 63px;
+  border: 1px solid var(--c-border);
+  margin-bottom: 25px;
+}
+
+.form__group--text-area {
+  height: auto;
+  display: flex;
+}
+
+.form__group label {
+  font-family: var(--primary-stack);
+  font-size: var(--primary-small);
+  line-height: var(--primary-line-height);
+  position: absolute;
+  top: 4px;
+  left: 15px;
+}
+
+.form__group input,
+.form__group textarea {
+  font-family: var(--primary-stack);
+  font-size: var(--primary-size);
+  line-height: var(--primary-line-height);
+  background-color: var(--c-white);
+  padding: 30px 15px 0;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+/* Hide the arrows */
+
+/* Chrome, Safari, Edge, Opera */
+.form__group input::-webkit-outer-spin-button,
+.form__group input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.form__group input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* --- Comment list --- */
+
+.comment-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--site-gutter);
+  background-color: var(--c-background);
+}
+
+.comment-list__title {
+  font-family: var(--title-stack);
+  font-size: var(--title-size);
+  line-height: var(--title-line-height);
+  color: var(--c-body);
+  margin-bottom: var(--title-margin-bottom);
+}
+
+.comment-list__list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.comment-list__item {
+  background-color: var(--c-accent);
+  border: 2px solid var(--c-black);
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.comment-list__number {
+  display: flex;
+  align-items: center;
+}
+
+.comment-list__circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4em;
+  width: 4em;
+  border-radius: 50%;
+  border: 2px solid var(--c-black);
+  background-color: var(--c-malachite);
+  margin-left: 40px;
+}
+
+.comment-list__circle span {
+  position: relative;
+  font-family: var(--title-stack);
+  font-size: 2em;
+  color: var(--c-black);
+}
+
+.comment-list__circle span::after {
+  content: '/10';
+  font-size: 14px;
+}
+
+.comment-list__circle--beers span::after {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -3px;
+  content: 'beers';
+}
+
+.comment-list__body {
+  font-family: var(--primary-stack);
+  font-size: var(--primary-size);
+  line-height: var(--primary-line-height);
+  color: var(--c-white);
+}
+
+.comment-list__body--mb {
+  margin-bottom: 1em;
+}
+
+.comment-list__body--small {
+  font-size: var(--primary-small);
+}
+
+/* --- Buttons --- */
+
+button {
+  width: auto;
+  white-space: nowrap;
+  vertical-align: top;
+  border: none;
+}
+
+.button {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--c-white);
+  border: 1px solid var(--c-accent);
+  background: var(--c-accent);
+  font-family: var(--primary-stack);
+  font-size: var(--primary-size);
+  line-height: var(--primary-line-height);
+  text-align: center;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  white-space: nowrap;
+  border-radius: 10px;
+}
+
+.button[disabled],
+.button.button--disabled {
+  color: grey;
+  background: rgba(grey, 0.5);
+  border-color: lightblue;
+  cursor: default;
+  pointer-events: none;
+}
+
+.button::after {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 0px;
+  height: 37px;
+}
+
+.button .span {
+  font-size: 18px;
+  line-height: 1.2em;
+  position: relative;
+  display: inline-block;
+  padding: 8px 24px;
+  vertical-align: middle;
+  white-space: normal;
+}
+
+.button--full {
+  width: 100%;
+}

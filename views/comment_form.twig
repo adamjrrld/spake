@@ -1,0 +1,72 @@
+{% extends 'layout.twig' %} {% block body %}
+<main class="form">
+  <h1 class="form__title">{{ title }}</h1>
+  <form method="post" action="">
+    <fieldset>
+      <div class="form__group">
+        <label for="name">{{ 'your name' }}</label>
+        <input
+          type="text"
+          placeholder="name"
+          name="name"
+          value="{{ undefined == comment ? '' : comment.name }}"
+          autofocus
+        />
+      </div>
+      <div class="form__group">
+        <label for="rating">{{ 'rating out of ten' }}</label>
+        <input
+          type="number"
+          name="rating"
+          min="0"
+          max="10"
+          value="{{ undefined == comment ? '' : comment.rating }}"
+        />
+      </div>
+      <div class="form__group form__group--text-area">
+        <label for="comment">{{ 'comment' }}</label>
+        <textarea
+          name="comment"
+          id="form-comment"
+          cols="30"
+          rows="6"
+          value="{{ undefined == comment ? '' : comment.comment }}"
+        ></textarea>
+      </div>
+      <div class="form__group">
+        <label for="howManyBeers">{{ 'How many beers have you had?' }}</label>
+        <input
+          type="number"
+          min="0"
+          name="howManyBeers"
+          value="{{ undefined == comment ? '' : comment.howManyBeers }}"
+        />
+      </div>
+      {#
+      <div class="form__group">
+        <label for="photo">{{ 'Take a photo!' }}</label>
+        <input
+          type="file"
+          name="photo"
+          accept="image/*"
+          capture="user"
+          value="{{ undefined == comment ? '' : comment.howManyBeers }}"
+        />
+      </div>
+      #}
+      <button class="button button--full" type="submit">
+        <span>{{ 'submit' }}</span>
+      </button>
+    </fieldset>
+  </form>
+</main>
+
+{% if errors %}
+<ul>
+  {% for error in errors %}
+  <li>
+    {{ error.msg }}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %} {% endblock %}

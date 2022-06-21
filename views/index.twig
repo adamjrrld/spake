@@ -1,0 +1,27 @@
+{% extends 'layout.twig' %} {% block body %}
+<main class="home">
+  <h1 class="home__title">{{ title }}</h1>
+  <p class="home__body">{{ 'Welcome to Jakes page' }}</p>
+
+  <figure class="home__image">
+    <img
+      srcset="/images/spake-large.jpg 800w, /images/spake-small.jpg 400w"
+      src="/images/spake-small.jpg"
+    />
+  </figure>
+
+  {% if error %}
+  <p class="home__body">Error getting dynamic content</p>
+  {% else %}
+  <p class="home__body">
+    Jake has been rated by {{ data.comment_count }} people so far! Add yours
+    below:
+  </p>
+  <a href="/home/comment/create" class="button button--full">
+    <span>
+      {{ 'rate my mate' }}
+    </span>
+  </a>
+</main>
+
+{% endif %} {% endblock %}
