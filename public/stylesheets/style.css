@@ -129,6 +129,7 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  padding-bottom: 2em;
 }
 
 .home__title {
@@ -228,6 +229,7 @@ fieldset {
   padding: var(--site-gutter);
   background-color: var(--c-background);
   margin: var(--site-vertical);
+  padding-bottom: 2em;
 }
 
 .comment-list__title {
