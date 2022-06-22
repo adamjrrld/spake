@@ -1,7 +1,7 @@
 {% extends 'layout.twig' %} {% block body %}
 <main class="home">
   <h1 class="home__title">{{ title }}</h1>
-  <p class="home__body">{{ 'Welcome to Jakes page' }}</p>
+  <p class="home__body">{{ 'Hit the button to rate me out of 10' }}</p>
 
   <figure class="home__image">
     <img
@@ -13,15 +13,14 @@
   {% if error %}
   <p class="home__body">Error getting dynamic content</p>
   {% else %}
-  <p class="home__body">
-    Jake has been rated by {{ data.comment_count }} people so far! Add yours
-    below:
-  </p>
-  <a href="/home/comment/create" class="button button--full">
+  <a href="/home/comment/create" class="button button--full button--mb">
     <span>
       {{ 'rate my mate' }}
     </span>
   </a>
+  <p class="home__body">
+    Jake has been rated by {{ data.comment_count }} people so far!
+  </p>
 </main>
 
 {% endif %} {% endblock %}

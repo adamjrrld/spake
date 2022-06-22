@@ -7,9 +7,9 @@
   --primary-size: 16px;
   --primary-line-height: 24px;
   --title-stack: 'Eczar', serif;
-  --title-size: 2.5em;
+  --title-size: 2em;
   --title-line-height: 1em;
-  --title-margin-bottom: 0.5em;
+  --title-margin-bottom: 0.3em;
   --primary-small: 12px;
   --c-background: #ffed9e;
   --c-accent: #e16071;
@@ -160,6 +160,7 @@ fieldset {
 .form {
   padding: var(--site-gutter);
   margin: var(--site-vertical);
+  padding-bottom: 2em;
 }
 
 .form__title {
@@ -168,13 +169,14 @@ fieldset {
   line-height: var(--title-line-height);
   color: var(--c-body);
   margin-bottom: var(--title-margin-bottom);
+  text-align: center;
 }
 
 .form__group {
   position: relative;
   height: 63px;
   border: 1px solid var(--c-border);
-  margin-bottom: 25px;
+  margin-bottom: 0.75em;
 }
 
 .form__group--text-area {
@@ -225,6 +227,7 @@ fieldset {
   align-items: center;
   padding: var(--site-gutter);
   background-color: var(--c-background);
+  margin: var(--site-vertical);
 }
 
 .comment-list__title {
@@ -249,6 +252,14 @@ fieldset {
   display: flex;
   flex-direction: column;
   margin: 15px 0;
+}
+
+.comment-list__item:first-child {
+  margin-top: 0;
+}
+
+.comment-list__item:last-child {
+  margin-bottom: 0;
 }
 
 .comment-list__number {
@@ -362,4 +373,8 @@ button {
 
 .button--full {
   width: 100%;
+}
+
+.button--mb {
+  margin-bottom: 1em;
 }

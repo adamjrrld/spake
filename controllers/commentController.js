@@ -12,7 +12,7 @@ exports.index = function (req, res) {
     },
     function (err, results) {
       res.render('index', {
-        title: 'Jakes Glasto Page',
+        title: "I'm Spake",
         error: err,
         data: results,
       });
@@ -22,23 +22,21 @@ exports.index = function (req, res) {
 
 // Display list of all comments
 exports.comment_list = function (req, res, next) {
-  Comment.find({}, 'name rating comment howManyBeers').exec(function (
-    err,
-    list_comments
-  ) {
-    if (err) {
-      return next(err);
-    }
-    //Successful, so render
-    res.render('comment_list', {
-      title: 'Comment List',
-      comment_list: list_comments,
+  Comment.find({}, 'name rating comment howManyBeers')
+    .sort({ createdAt: -1 })
+    .exec(function (err, list_comments) {
+      if (err) {
+        return next(err);
+      }
+      //Successful, so render
+      res.render('comment_list', {
+        title: 'Comment List',
+        comment_list: list_comments,
+      });
     });
-  });
 };
 
 // Display detail page for a specific comment
-// @todo maybe remove
 exports.comment_detail = function (req, res) {
   res.send('NOT IMPLEMENTED: Comment detail ' + req.params.id);
 };
@@ -50,7 +48,7 @@ exports.comment_create_get = function (req, res, next) {
 
 // Handle comment create on POST.
 exports.comment_create_post = [
-  // Validate and sanitize the name field.
+  // Validate and sanitize
   body('name')
     .trim()
     .isLength({ min: 1 })
